@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login WoPu</title>
+</head>
+<body>
+<div align="center">
+    <style>
+        img {
+            clip-path: inset(100px 0 130px 0); /* top right bottom left */
+        }
+        .error-popup {
+            position: fixed;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            background: red;
+            color: white;
+            border-radius: 5px;
+            z-index: 999;
+            display: inline-block;
+        }
+    </style>
+    <img src="images\WoPu-Logo.png" alt="Logo">
+    <form th:action="@{/dashboard}" method="post">
+        <label for="username">Benutzername:</label>
+        <input type="text" id="username" name="username"><br><br>
+
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <button type="submit">Anmelden</button>
+    </form>
+    <div th:if="${loginError}">
+        <div class="error-popup">
+            <p>Ihre Anmeldedaten sind falsch. Bitte versuchen Sie es erneut.</p>
+        </div>
+    </div>
+    <p>Noch nicht registriert? <a th:href="@{/registerUser}">Hier anmelden</a></p>
+</div>
+<!-- Deine vorhandenen HTML-Inhalte -->
+
+<!-- Popup für Fehlermeldung -->
+<div th:if="${loginError}" class="error-popup" id="errorPopup">
+    <p>Ihre Anmeldedaten sind falsch. Bitte versuchen Sie es erneut.</p>
+</div>
+
+<script>
+    setTimeout(function() {
+        var errorPopup = document.getElementById('errorPopup');
+        if (errorPopup) {
+            errorPopup.style.display = 'none';
+        }
+    }, 3000);
+</script>
+
+</body>
+</html>

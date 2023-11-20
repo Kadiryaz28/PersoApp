@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo-image {
+            max-width: 150px;
+            max-height: 100px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-left .logo,
+        .header-left .greeting {
+            margin-right: 20px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .header-links a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="logo">
+            <img src="images\WoPu-Icon.png" alt="Logo" class="logo-image">
+        </div>
+        <div class="greeting">
+            <p>Hallo, <span th:text="${username}"></span></p>
+        </div>
+    </div>
+    <div class="header-right">
+        <div class="header-links">
+            <a href="/employees">Mitarbeiter</a>
+            <a href="/companies">Unternehmen</a>
+        </div>
+        <div class="logout-button">
+            <a href="/">Abmelden</a>
+        </div>
+    </div>
+</header>
+
+<!-- Weitere Abschnitte können hier hinzugefügt werden -->
+
+</body>
+</html>
